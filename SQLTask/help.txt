@@ -1,0 +1,57 @@
+=====================================USAGE INSTRUCTIONS=============================================
+
+
+INPUT
+--select                column1,column2,...               selects columns on which to work
+--from                  file.csv                          selects source file
+
+
+OUTPUT
+--output                csv|screen                        selects where to output the data
+--ouput-file            file.csv (if --output=csv)
+
+
+SORT
+--sort-column           column_name                       sorts column according to mode and dir (must be present)
+--sort-mode             natural/alpha/numeric
+--sort-direction        asc/desc
+SORT MULTIPLE COLUMNS
+--multi-sort            col1,col2, ...
+--multi-sort-dir        asc,desc, ...
+
+
+ELIMINATE DUPLICATES
+--unique                column                            eliminates duplicates on a column
+
+
+FILTER COLUMNS ACCORDING TO A VALUE
+--where "column<>value"
+SAU
+--where "column=value"
+SAU
+--where "coloana<valoarea"
+SAU
+--where "coloana>valoarea"
+
+AGGREGATION
+--aggregate-sum         column                           returns sum of elements on a column
+--aggregate-product     column                           returns product of elements on a column
+--aggregate-list        column ::
+--aggregate-list-glue       _                            glues values from column using a given character
+
+
+MODIFY CASE
+--uppercase-column      column
+--lowercase-column      column
+--titlecase-column      column
+--power-values          column,power
+
+
+MAPPING A USER FUNCTION ON ALL THE VALUES OF A COLUMN
+the function will be searched in a file with the same name from the include path
+
+--map-function          function_name: ex. cutLetter      cuts the first letter from all elements on a column
+--map-function-column   column
+
+SORT COLUMNS TO OUTPUT
+--column-sort           asc|desc                          sorts columns according to their keys, for display
