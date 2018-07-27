@@ -1,0 +1,45 @@
+DOCUMENTATION for Task 2 – SQL
+
+Author: Georgiana Marian
+Date: 26.07.2018 
+
+Description
+
+This tool allows the user to perform SQL-like operations on data from a CSV file and to output it to the screen or another CSV file. 
+
+
+Arguments
+
+--help							explains what each option does
+--select							select columns from table
+--from							file in which the table is
+--output   +   --output-file				output method
+--sort-column + --sort-mode + --sort-direction	column and parameters on which to sort
+--multi-sort +--multi-sort-dir				sort on multiple columns 
+--unique						remove duplicates
+--aggregate-sum					makes the sum on a column
+--aggregate-column					makes the product on a column
+--aggregate-list   +   --aggregate-list-glue		glue strings from a column
+--uppercase-column					apply uppercase filter
+--lowercase-column					apply lowercase filter
+--titlecase-column					apply titlecase fitlter
+--power-values  column,power			
+
+Sample inputs: 
+
+> php sql.php --input-file=data.csv --output csv --output-file=dada.csv --select name,surname,age --from=data.csv --where='name<>Georgiana' --sort-column name --sort-mode numeric  --multi-sort=name,surname,age --multi-sort-dir=asc,desc,asc --sort-direction asc  --aggregate sum --aggregate-sum age --column-sort asc
+
+>php sql.php --input-file=data.csv --output csv --output-file=dada.csv --select name,surname,age --from=data.csv --where='name<Georgiana' --sort-column name --sort-mode numeric  --multi-sort=name,surname,age --multi-sort-dir=asc,desc,asc --sort-direction asc  --aggregate product --aggregate-product age 
+
+>php sql.php --input-file=data.csv --output screen --output-file=output.csv --select='*' --from=data.csv --where='name=Georgiana' --sort-column name --sort-mode numeric  --multi-sort=name,surname,age --multi-sort-dir=asc,desc,asc --sort-direction asc  
+
+NOTE: I added a –aggregate product/sum/list argument in order to be able to figure out easier which kind of aggregation I should use
+
+Expected output
+- screeen: data in json format
+-file: data in csv format
+
+
+Problems
+
+I do not have a function to validate each argument separately, therefore the existence of the isset in sql.php is annoying
